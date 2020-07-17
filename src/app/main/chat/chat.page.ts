@@ -1,3 +1,4 @@
+import { AngularFireAuth } from '@angular/fire/auth';
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 
@@ -10,24 +11,8 @@ export class ChatPage implements OnInit {
 
   public chat = null;
   public message = "";
-  public messages = [
-    {
-      sender: "fhwhieohifwe",
-      content: "Hola qué tal todo bitch",
-      hour: "17:53"
-    },
-    {
-      sender: "jrfieijofjoi",
-      content: "Hola qué tal todo bitch",
-      hour: "17:53"
-    },
-    {
-      sender: "fhwhieohifwe",
-      content: "Hola qué tal todo bitch",
-      hour: "17:53"
-    },
-  ];
-  constructor(private router : Router, private route : ActivatedRoute) {
+  public messages = [];
+  constructor(private router : Router, private route : ActivatedRoute, private auth : AngularFireAuth) {
     this.route.queryParams.subscribe(params => {
       if (this.router.getCurrentNavigation().extras.state) {
         this.chat = this.router.getCurrentNavigation().extras.state.chat;
@@ -40,4 +25,10 @@ export class ChatPage implements OnInit {
   {
   }
 
+  async sendMessage()
+  {
+    let date = new Date();
+    let hour = date.getUTCHours() + ":" + date.getUTCMinutes();
+    
+  }
 }

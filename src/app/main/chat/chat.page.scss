@@ -36,34 +36,33 @@ ion-content {
         }
     }
     .chatContainer {
+        padding-top: 10%;
         width: 100%;
         height: 90%;
         .message {
-            margin-top: 3vh;
-            margin-bottom: 3vh;
+            margin-top: 0.5vh;
+            margin-bottom: 0.5vh;
             font-size: small;
             font-weight: 600;
             float: left;
             max-width: 75%;
             border-radius: 20px;
-            box-shadow: 0 0 10px #00000022;
             padding: 5px;
-            color: white;
-            background-color: #15abff;
+            box-shadow: 0 0 10px #00000044;
         }
         .rightMessage {
             float: right;
             margin-left: 25%;
             margin-right: 5vw;
-            background-color: #ffffff;
-            color: #15abff;
+            background-color: white;
+            color: black;
         }
         .leftMessage {
+            background-color: #15abff;
+            color: #ffffff;
             float: left;
             margin-right: 25%;
             margin-left: 5vw;
-            color: white;
-            background-color: #15abff;
         }
     }
 }
