@@ -22,6 +22,6 @@ export class MessagingService {
 
   receiveMessages(chat_id : string) : firebase.database.Reference
   {
-    return (this.db.refFromURL("https://telefonicachat.firebaseio.com/chats/0/mensajes"))
+    return (this.db.refFromURL("https://telefonicachat.firebaseio.com/chats/0/mensajes"));
   }
 }

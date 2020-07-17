@@ -25,12 +25,10 @@ export class ChatPage implements OnInit {
   ngOnInit()
   {
     this.messageReceiver = this.messagingService.receiveMessages(this.chat.chat_id);
-    this.messageReceiver.once('value', (snap) => {
+    this.messageReceiver.orderByChild("timestamp").once('value', (snap) => {
       this.messages = Object.values(snap.val())
-      console.log(this.messages);
-      
     });
-    this.messageReceiver.on('child_added', snapshot => {
+    this.messageReceiver.orderByChild("timestamp").on('child_added', snapshot => {
         this.messages.push(snapshot.val());
     });
   }
@@ -41,8 +39,9 @@ export class ChatPage implements OnInit {
       {
       content: this.message,
       sender: "this.chat.me",
-      hour: this.getTime(new Date())
+      timestamp: new Date().getTime()
     });
+    this.message = "";
   }
 
   getTime(date : Date)
