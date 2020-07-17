@@ -1,0 +1,16 @@
+<ion-content>
+    <div>
+        <img id="logo" src="../../assets/icon/favicon.png" alt="">
+        <div>
+            <input type="email" [(ngModel)]="email" placeholder="Email">
+            <input type="password" [(ngModel)]="password" placeholder="Password (8 characters at least)">
+        </div>
+        <input type="button" value="Register" (click)="register()" [disabled]="checkForm()">
+        <div class="centerLabel" routerLink="/home">
+            <label>¿Do you have an account? Log in.</label>
+        </div>
+        <div class="centerLabel">
+            <label style="color: brown">{{ errorMessage }}</label>
+        </div>
+    </div>
+</ion-content>

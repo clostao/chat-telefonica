@@ -1,0 +1,33 @@
+#header {
+    height: 20vh;
+    width: 100vw;
+    background-color: #15abff;
+}
+
+.messages {
+    .messageContainer {
+        >div {
+            width: 100%;
+            height: 15vh;
+        }
+        .email {
+            display: flex;
+            align-items: center;
+            width: 100%;
+            height: 50%;
+            text-align: left;
+        }
+        .messageInfo {
+            display: inline-flex;
+            align-items: baseline;
+            height: 50%;
+            width: 100%;
+            div {
+                width: 50%;
+            }
+            .date {
+                text-align: right;
+            }
+        }
+    }
+}

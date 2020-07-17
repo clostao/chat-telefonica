@@ -1,0 +1,69 @@
+ion-content {
+    width: 100%;
+    .messageSender {
+        position: fixed;
+        width: 100%;
+        height: 10%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        left: 0;
+        bottom: 0;
+        #messageInput {
+            width: 80%;
+            height: 80%;
+            margin-left: 2%;
+            margin-right: 3%;
+            box-shadow: 0 0 10px #00000044;
+            border: 0;
+            border-radius: 20px;
+            text-indent: 5%;
+        }
+        #sendButton {
+            width: 10vw;
+            height: 10vw;
+            background-image: url("../../../assets/icon/send.png");
+            background-position: center center;
+            background-repeat: no-repeat;
+            background-size: cover;
+            border-radius: 10vw;
+            box-shadow: 0 0 10px #000000aa;
+            border: 0;
+            border-radius: 20px;
+        }
+        #sendButton:disabled {
+            opacity: 0.5;
+        }
+    }
+    .chatContainer {
+        width: 100%;
+        height: 90%;
+        .message {
+            margin-top: 3vh;
+            margin-bottom: 3vh;
+            font-size: small;
+            font-weight: 600;
+            float: left;
+            max-width: 75%;
+            border-radius: 20px;
+            box-shadow: 0 0 10px #00000022;
+            padding: 5px;
+            color: white;
+            background-color: #15abff;
+        }
+        .rightMessage {
+            float: right;
+            margin-left: 25%;
+            margin-right: 5vw;
+            background-color: #ffffff;
+            color: #15abff;
+        }
+        .leftMessage {
+            float: left;
+            margin-right: 25%;
+            margin-left: 5vw;
+            color: white;
+            background-color: #15abff;
+        }
+    }
+}

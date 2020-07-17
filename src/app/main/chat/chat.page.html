@@ -1,0 +1,23 @@
+<ion-header>
+    <ion-toolbar>
+        <ion-buttons slot="start">
+            <ion-back-button></ion-back-button>
+        </ion-buttons>
+        <ion-title> </ion-title>
+    </ion-toolbar>
+</ion-header>
+<ion-content>
+    <div class="chatContainer">
+        <div *ngFor="let message of messages">
+            <div style="width: 100%;">
+                <div class="message" [ngClass]="(chat.other.uid == message.sender) ? 'leftMessage' : 'rightMessage'">
+                    {{ message.content }}
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="messageSender ">
+        <input type="text " [(ngModel)]="message " id="messageInput " />
+        <input type="button " id="sendButton " [disabled]="message.length==0 " />
+    </div>
+</ion-content>

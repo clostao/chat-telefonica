@@ -3,7 +3,17 @@
 // The list of file replacements can be found in `angular.json`.
 
 export const environment = {
-  production: false
+  production: false,
+  firebaseConfig: {
+    apiKey: "AIzaSyCbIHMXuqGGuNMJtRXN25fv5uNmJrtJZDE",
+    authDomain: "telefonicachat.firebaseapp.com",
+    databaseURL: "https://telefonicachat.firebaseio.com",
+    projectId: "telefonicachat",
+    storageBucket: "telefonicachat.appspot.com",
+    messagingSenderId: "265847913503",
+    appId: "1:265847913503:web:ae2c3f6407350d3a4ce92a",
+    measurementId: "G-VVDXNWLPGM"
+  },
 };
 
 /*

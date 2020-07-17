@@ -1,20 +1,16 @@
-<ion-header [translucent]="true">
-  <ion-toolbar>
-    <ion-title>
-      Blank
-    </ion-title>
-  </ion-toolbar>
-</ion-header>
-
-<ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">Blank</ion-title>
-    </ion-toolbar>
-  </ion-header>
-
-  <div id="container">
-    <strong>Ready to create an app?</strong>
-    <p>Start with Ionic <a target="_blank" rel="noopener noreferrer" href="https://ionicframework.com/docs/components">UI Components</a></p>
-  </div>
+<ion-content>
+    <div>
+        <img id="logo" src="../../assets/icon/favicon.png" alt="">
+        <div>
+            <input type="email" [(ngModel)]="email" placeholder="Email">
+            <input type="password" [(ngModel)]="password" placeholder="Password">
+        </div>
+        <input type="button" value="Iniciar sesión" (click)="logIn()">
+        <div class="centerLabel" routerLink="/registro">
+            <label>¿Are you new? Sign up.</label>
+        </div>
+        <div class="centerLabel" style="color: brown;">
+            <label>{{ errorMessage }}</label>
+        </div>
+    </div>
 </ion-content>
