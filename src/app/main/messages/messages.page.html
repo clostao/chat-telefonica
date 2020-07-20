@@ -7,14 +7,12 @@
     <ion-item button *ngFor="let chat of chats" class="messageContainer" (click)="goToChat(chat)">
         <div>
             <div class="email">
-                Chat with: {{ chat.other.email }}
+                Chat with: {{ (chat.other) ? chat.other.email : "..." }}
             </div>
             <div class="messageInfo">
                 <div class="message">
-                    {{ chat.lastMessage.content }}
                 </div>
                 <div class="date">
-                    {{ chat.lastMessage.date }}
                 </div>
             </div>
         </div>

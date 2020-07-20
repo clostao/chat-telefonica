@@ -12,10 +12,8 @@ import { AngularFireAuthModule } from "@angular/fire/auth"
 import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing.module';
 import { environment } from 'src/environments/environment';
-import { AngularAsyncPipe } from './pipes/angular-async.pipe';
-
 @NgModule({
-  declarations: [AppComponent, AngularAsyncPipe],
+  declarations: [AppComponent,],
   entryComponents: [],
   imports: [BrowserModule, 
     IonicModule.forRoot(),

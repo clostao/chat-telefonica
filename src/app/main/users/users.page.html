@@ -5,5 +5,17 @@
 </ion-header>
 
 <ion-content>
-
+    <div *ngIf="users != null">
+        <ion-item button (click)="createChat(user)" *ngFor="let user of users">
+            <ion-label>
+                {{ user.email }}
+            </ion-label>
+            <ion-icon name="person-add-outline" slot="end"></ion-icon>
+        </ion-item>
+    </div>
+    <div id="spinner" *ngIf="users == null">
+        <ion-item>
+            <ion-spinner name="crescent"></ion-spinner>
+        </ion-item>
+    </div>
 </ion-content>

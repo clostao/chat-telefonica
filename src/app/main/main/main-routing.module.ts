@@ -14,11 +14,11 @@ const routes: Routes = [
       },
       {
         path: "messages",
-        loadChildren: "../messages/messages.module#MessagesPageModule",
+        loadChildren: () => import("../messages/messages.module").then(m => m.MessagesPageModule),
       },
       {
         path: "users",
-        loadChildren: "../users/users.module#UsersPageModule",
+        loadChildren: () => import("../users/users.module").then(m => m.UsersPageModule),
       }
     ]
   }

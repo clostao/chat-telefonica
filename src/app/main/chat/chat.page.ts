@@ -1,51 +1,36 @@
-import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute, Router } from '@angular/router';
-import { MessagingService } from 'src/app/services/messaging.service';
+import { ChatService } from "./../../services/chat.service";
+import { Component, OnInit } from "@angular/core";
+import { ActivatedRoute, Router } from "@angular/router";
 
 @Component({
-  selector: 'app-chat',
-  templateUrl: './chat.page.html',
-  styleUrls: ['./chat.page.scss'],
+  selector: "app-chat",
+  templateUrl: "./chat.page.html",
+  styleUrls: ["./chat.page.scss"],
 })
 export class ChatPage implements OnInit {
 
-  public chat = null;
+  public infoChat = null;
+
   public message = "";
-  private messageReceiver : firebase.database.Reference;
-  public messages = [];
-  constructor(private router : Router, private route : ActivatedRoute, private messagingService : MessagingService) {
-    this.route.queryParams.subscribe(params => {
-      if (this.router.getCurrentNavigation().extras.state) {
-        this.chat = this.router.getCurrentNavigation().extras.state.chat;
-        
-      }
+
+  private messageReceiver: firebase.database.Reference;
+  public savedMessages = [];
+  constructor( private router: Router, private route: ActivatedRoute, private chatService: ChatService ) {}
+
+  async ngOnInit() {
+    this.route.queryParams.subscribe(async (params) => {
+      if (this.router.getCurrentNavigation().extras.state)
+        this.infoChat = this.router.getCurrentNavigation().extras.state.infoChat;
+        this.infoChat.chat.messages = []
+    });
+    this.messageReceiver = this.chatService.suscribeMessages(this.infoChat.chat.id);
+    this.messageReceiver.on("value", (snap) => {
+      this.savedMessages = Object.values(snap.val())
     });
   }
 
-  ngOnInit()
-  {
-    this.messageReceiver = this.messagingService.receiveMessages(this.chat.chat_id);
-    this.messageReceiver.orderByChild("timestamp").once('value', (snap) => {
-      this.messages = Object.values(snap.val())
-    });
-    this.messageReceiver.orderByChild("timestamp").on('child_added', snapshot => {
-        this.messages.push(snapshot.val());
-    });
-  }
-
-  async sendMessage()
-  {
-    this.messagingService.sendMessage("0",
-      {
-      content: this.message,
-      sender: "this.chat.me",
-      timestamp: new Date().getTime()
-    });
+  sendMessage() {
+    this.chatService.sendMessage(this.message, this.infoChat.chat.id);
     this.message = "";
-  }
-
-  getTime(date : Date)
-  {
-    return (date.getHours() + ":" + date.getMinutes());
   }
 }

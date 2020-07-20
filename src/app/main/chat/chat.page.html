@@ -3,18 +3,21 @@
         <ion-buttons slot="start">
             <ion-back-button></ion-back-button>
         </ion-buttons>
-        <ion-title> </ion-title>
+        <ion-title *ngIf="infoChat != null"> Chat with: {{ infoChat.other.email }} </ion-title>
     </ion-toolbar>
 </ion-header>
-<ion-content>
-    <div class="chatContainer">
-        <div *ngFor="let message of messages">
+<ion-content *ngIf="infoChat != null">
+    <div class="chatContainer" *ngIf="savedMessages != null">
+        <div *ngFor="let message of savedMessages">
             <div style="width: 100%;">
-                <div class="message" [ngClass]="(chat.other.uid == message.sender) ? 'leftMessage' : 'rightMessage'">
+                <div class="message" [ngClass]="(infoChat.other.uid == message.sender) ? 'leftMessage' : 'rightMessage'">
                     {{ message.content }}
                 </div>
             </div>
         </div>
+    </div>
+    <div *ngIf="savedMessages == null" class="chatContainer">
+        <ion-spinner name="crescent" color="primary"></ion-spinner>
     </div>
     <div class="messageSender">
         <input type="text" [(ngModel)]="message" id="messageInput" />
