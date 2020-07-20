@@ -68,7 +68,7 @@ export class UserService {
     return (result)
   }
 
-  async getChatFromUID(otherUID : string, myUID ?: string)
+  async getChatFromUID(otherUID, myUID ?: string)
   {
     let result;
     if (myUID == undefined)

@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "265847913503",
+    "firebase_url": "https://telefonicachat.firebaseio.com",
+    "project_id": "telefonicachat",
+    "storage_bucket": "telefonicachat.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:265847913503:android:bd80040fde5c69a74ce92a",
+        "android_client_info": {
+          "package_name": "com.example.myCloudChat"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "265847913503-jk7mq7tf0pba9o840jn1844oldhjgofa.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCt5oCy4JzdHpOcHlqF-OhebG5OE9WUgYI"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "265847913503-jk7mq7tf0pba9o840jn1844oldhjgofa.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "265847913503-p8ils7t2a5213klp9c3e8tq2c8rlee6d.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.example.myCloudChat"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

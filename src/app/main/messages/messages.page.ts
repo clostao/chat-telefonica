@@ -18,10 +18,10 @@ export class MessagesPage implements OnInit {
   }
 
   async ngOnInit() {
-    this.chats = await this.userService.getChats();
     this.chatsReceiver = await this.userService.suscribeToChats();
     this.chatsReceiver.on('value',async (snap) => {
-      snap.val().forEach(async (e) => {this.chats.push(await this.userService.getChatFromUID(e))})
+      if (snap != null && snap.val() != undefined)
+        Object.values(snap.val()).forEach(async (e) => {this.chats.push(await this.userService.getChatFromUID(e))})
     });
   }
 

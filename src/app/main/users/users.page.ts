@@ -15,10 +15,11 @@ export class UsersPage implements OnInit {
 
   async ngOnInit() {
     this.users = []
-    this.users = await this.userService.getUsers();
-
     this.userReceiver = await this.userService.suscribeUsers();
-    this.userReceiver.on('child_added', (snap) => this.users.push(snap.val()))
+    this.userReceiver.on('value', (snap) => {
+      if (snap && snap.val())
+        this.users = Object.values(snap.val())
+    });
   }
 
   async createChat(other: { email: string; uid: string }) {

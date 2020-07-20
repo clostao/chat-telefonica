@@ -25,7 +25,8 @@ export class ChatPage implements OnInit {
     });
     this.messageReceiver = this.chatService.suscribeMessages(this.infoChat.chat.id);
     this.messageReceiver.on("value", (snap) => {
-      this.savedMessages = Object.values(snap.val())
+      if (snap && snap.val())
+        this.savedMessages = Object.values(snap.val())
     });
   }
 
